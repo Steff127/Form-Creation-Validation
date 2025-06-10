@@ -5,7 +5,12 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", (event) => {
     event.preventDefault(); // Prevent default form submission
 
-    // Retrieve input values and trim whitespace
+    // Call the validation function
+    validateForm();
+  });
+
+  function validateForm() {
+    // Retrieve and trim input values
     const username = document.getElementById("username").value.trim();
     const email = document.getElementById("email").value.trim();
     const password = document.getElementById("password").value.trim();
@@ -41,14 +46,5 @@ document.addEventListener("DOMContentLoaded", () => {
       feedbackDiv.innerHTML = messages.join("<br>");
       feedbackDiv.style.color = "#dc3545";
     }
-  });
+  }
 });
-// Display feedback
-feedbackDiv.style.display = "block";
-if (isValid) {
-    feedbackDiv.textContent = "Registeration successful!";
-    feedbackDiv.style.color = "#28a745";
-} else {
-    feedbackDiv.innerHTML = message.join("br");
-    feedbackDiv.style.color = "#dc3545";
-}
